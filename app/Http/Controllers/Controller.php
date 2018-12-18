@@ -10,4 +10,27 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    protected function set_editable($model, $editable)
+    {
+
+        if ($model->$editable) {
+            $model->update([
+                $editable => 0,
+            ]);
+
+            return response()->json([
+                'status' => 0,
+                'type' => $editable
+            ]);
+        }
+
+        $model->update([
+            $editable => 1,
+        ]);
+
+        return response()->json([
+            'status' => 1,
+            'type' => $editable
+        ]);
+    }
 }

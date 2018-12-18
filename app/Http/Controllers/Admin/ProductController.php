@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,12 +19,14 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create-edit');
+        $categories = Category::all();
+        return view('admin.products.create-edit',compact('categories'));
 
     }
     public function edit(Product $product)
     {
-        return view('admin.products.create-edit',compact('product'));
+        $categories = Category::all();
+        return view('admin.products.create-edit',compact(['product','categories']));
 
     }
 
@@ -37,18 +40,17 @@ class ProductController extends Controller
             $product->image_path=$request->file('image_path')->store('products','public');
         }
         foreach (\Localization::getSupportedLocales() as $key => $value) {
-            if ($request->get('title_'.$key))
-            {
-                $product->translateOrNew($key)->title=$request->get('title_'.$key);
+            if ($request->get('title_' . $key)) {
+                $product->translateOrNew($key)->title = $request->get('title_' . $key);
             }
-            if ($request->get('description_'.$key))
-            {
-                $product->translateOrNew('description_'.$key)->description=$request->get('description_'.$key);
+            if ($request->get('description_' . $key)) {
+                $product->translateOrNew($key)->description = $request->get('description_' . $key);
             }
         }
         $product->price = $request->get('price');
         $product->quantity = $request->get('quantity');
         $product->active = $request->has('active') ? 1 : 0;
+        $product->category_id=$request->get('category_id');
         $product->save();
         return redirect(action('Admin\ProductController@index'))->with('Success','Product Added Successfully');
 
@@ -66,19 +68,18 @@ class ProductController extends Controller
         }
         foreach (\Localization::getSupportedLocales() as $key => $value)
         {
-            if ($request->get('title_'.$key))
-            {
-                $product->translateOrNew('title_'.$key)->title=$request->get('title_'.$key);
+            if ($request->get('title_' . $key)) {
+                $product->translateOrNew($key)->title = $request->get('title_' . $key);
             }
-            if ($request->get('description_'.$key))
-            {
-                $product->translateOrNew('description_'.$key)->description=$request->get('description_'.$key);
+            if ($request->get('description_' . $key)) {
+                $product->translateOrNew($key)->description = $request->get('description_' . $key);
             }
 
         }
         $product->price = $request->get('price');
         $product->quantity = $request->get('quantity');
         $product->active = $request->has('active') ? 1 : 0;
+        $product->category_id=$request->get('category_id');
         $product->save();
         return redirect(action('Admin\ProductController@index'))->with('Success','Product Added Successfully');
 
@@ -94,10 +95,13 @@ class ProductController extends Controller
                 unlink(storage_path('/storage/'.$product->image_path));
             }
             $DeletedProduct->delete();
-            return redirect(action('ProductController@index'))->with('success','Product Deleted Successfully');
+            return redirect(action('Admin\ProductController@index'))->with('Success','Product Deleted Successfully');
         }
 
-
+    public function active(Product $product)
+    {
+        return $this->set_editable($product, 'active');
+    }
 
 
 

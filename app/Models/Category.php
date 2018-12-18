@@ -10,7 +10,7 @@ class Category extends Model
     use Translatable;
 
     protected $fillable = ['image_path'];
-    public $traslatedAttributes = ['title'];
+    public $translatedAttributes = ['title'];
 
     public function products()
     {

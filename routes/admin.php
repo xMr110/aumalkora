@@ -14,3 +14,10 @@ Route::get('/', function (){
 
 
 Route::resource('user','UserController');
+Route::resource('slider','SliderController');
+Route::post('slide/active/{slide}','SliderController@active');
+Route::resource('category','CategoryController');
+Route::resource('product','ProductController');
+Route::resource('job','JobController');
+Route::resource('request','JobRqtsController');
+Route::post('product/active/{product}','ProductController@active');

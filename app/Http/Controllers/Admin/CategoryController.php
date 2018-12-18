@@ -51,7 +51,7 @@ class CategoryController extends Controller
             }
             $category->image_path=$request->file('image_path')->store('categories','public');
         }
-        foreach (\localization::getSupportedLocales() as $key => $values)
+        foreach (\Localization::getSupportedLocales() as $key => $values)
         {
             if ($request->get('title_'. $key))
             {
@@ -63,7 +63,7 @@ class CategoryController extends Controller
         return redirect(action('Admin\CategoryController@index'))->with('success','Category Updated Successfully');
     }
 
-    public function destory(Category $category)
+    public function destroy(Category $category)
     {
         if($category->products()->count())
         {
