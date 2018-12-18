@@ -74,6 +74,11 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slide=Slider::findOrFail($id);
+        if(file_exists('/storage/'.$slide->image_path))
+        {
+            unlink(storage_path('/storage/'.$slide->image_path));
+
+        }
         $slide->delete();
         return redirect(action('Admin\SliderController@index'))->with('Success','Slide Removed Successfully');
 

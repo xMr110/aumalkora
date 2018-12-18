@@ -49,6 +49,17 @@
                         <i
                                 class="mdi mdi-account"></i>
                         <span class="hide-menu">
+                        Albums
+                    </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{action('Admin\AlbumController@index')}}">All </a></li>
+                        <li><a href="{{action('Admin\AlbumController@create')}}">New</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i
+                                class="mdi mdi-account"></i>
+                        <span class="hide-menu">
                         Categories
                     </span></a>
                     <ul aria-expanded="false" class="collapse">

@@ -14,6 +14,8 @@ Route::get('/', function (){
 
 
 Route::resource('user','UserController');
+Route::resource('album','AlbumController');
+Route::resource('image', 'AlbumImagesController');
 Route::resource('slider','SliderController');
 Route::post('slide/active/{slide}','SliderController@active');
 Route::resource('category','CategoryController');
