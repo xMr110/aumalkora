@@ -39,6 +39,7 @@ class AlbumController extends Controller
             }
 
         }
+        $album->save();
         if ($request->has('images'))
         {
             $images= array();
@@ -47,10 +48,11 @@ class AlbumController extends Controller
                 $image = new AlbumImages();
                 $image->image_path = $item->store('Album' . $album->title, 'public' );
                 array_push($images,$image);
+
             }
             $album->images()->saveMany($images);
+            $album->save();
         }
-        $album->save();
         return redirect(action('Admin\AlbumController@index'))->with('success','Album Created Successfully');
 
     }

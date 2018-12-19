@@ -12,6 +12,15 @@ Route::get('/', function (){
     return view('admin.dashboard');
 })->name('dashboard');
 
+Route::resource('settings', 'SettingController', [
+    'only' => ['index', 'store']
+]);
+Route::get('OurProduct/Manage','SettingController@OurProduct');
+Route::get('Panel/Manage','SettingController@Panel');
+Route::get('AboutUs/Manage','SettingController@AboutUs');
+
+
+
 
 Route::resource('user','UserController');
 Route::resource('album','AlbumController');

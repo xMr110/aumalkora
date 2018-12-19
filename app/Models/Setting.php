@@ -31,53 +31,48 @@ class Setting extends Model
             'email' => '',
             'fax' => '',
             'slider' => '',
-            'map_Lat' => '',
-            'map_Lng' => '',
+            'ceo_image' => '',
+            'Ceo_Name_ar' => '',
+            'Ceo_Name_en' => '',
+            'Ceo_Name_tr' => '',
+            'ceo_description_en' => '',
+            'ceo_description_ar' => '',
+            'ceo_description_tr' => '',
             'pdf' => '',
-            'whytitle_en' => '',
-            'whytitle_fr' => '',
-            'whybody_fr' => '',
-            'whybody_en' => '',
-            'part1_image'=> '',
-            'part1_title_en'=> '',
-            'part1_title_fr'=> '',
-            'part1_description_en'=> '',
-            'part1_description_fr'=> '',
-            'part2_image'=> '',
-            'part2_title_en'=> '',
-            'part2_title_fr'=> '',
-            'part2_description_en'=> '',
-            'part2_description_fr'=> '',
-            'part3_image'=> '',
-            'part3_title_en'=> '',
-            'part3_title_fr'=> '',
-            'part3_description_en'=> '',
-            'part3_description_fr'=> '',
-            'part4_image'=> '',
-            'part4_title_en'=> '',
-            'part4_title_fr'=> '',
-            'part4_description_en'=> '',
-            'part4_description_fr'=> '',
-            'project_image'=> '',
-            'project_description_fr'=> '',
-            'project_description_en'=> '',
-            'section_project_image'=>'',
-            'section_service_image'=>'',
-            'section_topic_image'=>'',
-            'section_partner_image'=>'',
-            'section_team_image'=>'',
-            'section_about_image'=>'',
-            'why_image'=>'',
-            'why_image_mobile'=>'',
-            'whatwedo_image'=>'',
-            'whatwedo_image_mobile'=>'',
-
+            'ourproduct_image' => '',
+            'ourproduct_description_tr' => '',
+            'ourproduct_description_en' => '',
+            'ourproduct_description_ar' => '',
+            'index_title_ar' => '',
+            'index_title_en' => '',
+            'index_title_tr' => '',
+            'goal_title_ar' => '',
+            'goal_title_en' => '',
+            'goal_title_tr' => '',
+            'view_title_ar' => '',
+            'view_title_en' => '',
+            'view_title_tr' => '',
+            'message_title_ar' => '',
+            'message_title_en' => '',
+            'message_title_tr' => '',
+            'panel_description_tr' => '',
+            'panel_description_en' => '',
+            'panel_description_ar' => '',
+            'goal_description_tr' => '',
+            'goal_description_en' => '',
+            'goal_description_ar' => '',
+            'view_description_tr' => '',
+            'view_description_en' => '',
+            'view_description_ar' => '',
+            'message_description_tr' => '',
+            'message_description_en' => '',
+            'message_description_ar' => '',
         ];
 
     public static function get($key, $default = '')
     {
         $get = self::where('key', $key)->first();
-        if (!count($get)) {
+        if ( ! count($get)) {
             return $default;
         }
 
@@ -89,9 +84,9 @@ class Setting extends Model
     {
         $set = self::where('key', $key)->first();
 
-        if (!isset($set)) {
+        if ( ! isset($set)) {
             $set = self::firstOrCreate([
-                'key' => $key,
+                'key'   => $key,
                 'value' => $value,
             ]);
         } else {
@@ -100,7 +95,6 @@ class Setting extends Model
 
         return $set;
     }
-
 
 
     public static function forget($key)

@@ -21,9 +21,9 @@ class CreateJobsTable extends Migration
         Schema::create('job_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id')->unsigned();
-            $table->string('title');
-            $table->string('name');
-            $table->string('description');
+            $table->string('title')->nullable();
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
             $table->string('locale')->index();
 
             $table->unique(['job_id', 'locale']);

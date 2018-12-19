@@ -14,9 +14,9 @@
                             <span class="hide-menu">
                         Settings
                     </span></a>
-                        {{--<ul aria-expanded="false" class="collapse">--}}
-                            {{--<li><a href="{{ action('Admin\SettingController@index') }}">Manage</a></li>--}}
-                        {{--</ul>--}}
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ action('Admin\SettingController@index') }}">Manage</a></li>
+                        </ul>
                     </li>
 
                     <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
@@ -88,6 +88,27 @@
                         <li><a href="{{action('Admin\JobController@index')}}">All </a></li>
                         <li><a href="{{action('Admin\JobController@create')}}">New</a></li>
                         <li><a href="{{action('Admin\JobRqtsController@index')}}">Request</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i
+                                class="mdi mdi-account"></i>
+                        <span class="hide-menu">
+                        About us
+                    </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{action('Admin\SettingController@AboutUs')}}">Manage</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i
+                                class="mdi mdi-account"></i>
+                        <span class="hide-menu">
+                        Index Page Settings
+                    </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{action('Admin\SettingController@OurProduct')}}">Our Products Section</a></li>
+                        <li><a href="{{action('Admin\SettingController@Panel')}}">Panel Section</a></li>
                     </ul>
                 </li>
                 <li><a class="waves-effect waves-dark" href="/admin/translations" aria-expanded="false"><i

@@ -8,7 +8,7 @@ class AlbumImages extends Model
 {
     //
     protected $fillable = [
-        'image_path', 'visible'
+        'image_path'
     ];
 
     public function album()
