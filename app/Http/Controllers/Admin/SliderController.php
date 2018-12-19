@@ -26,15 +26,14 @@ class SliderController extends Controller
     }
     public function store(SliderRequest $request)
     {
-        $this->validate($request,['image_path'=>'required|image']);
+        $this->validate($request, ['image_path' => 'required|image']);
         $slide = new Slider();
-        if ($request->hasFile('image_path'))
-        {
-            $slide->image_path=$request->file('image_path')->store('slider','public');
+        if ($request->hasFile('image_path')) {
+            $slide->image_path = $request->file('image_path')->store('slider', 'public');
         }
-        $slide->active = $request->has('active') ? 1 : 0;
-        foreach (\Localization::getSupportedLocales() as $key => $value)
-        {
+        //filling translations
+
+        foreach (\Localization::getSupportedLocales() as $key => $value) {
             if ($request->get('title_' . $key)) {
                 $slide->translateOrNew($key)->title = $request->get('title_' . $key);
             }
@@ -42,9 +41,9 @@ class SliderController extends Controller
                 $slide->translateOrNew($key)->description = $request->get('description_' . $key);
             }
         }
+        $slide->active = $request->has('active') ? 1 : 0;
         $slide->save();
-        return redirect(action('Admin\SliderController@index'))->with('Success','Slide Added Successfully');
-
+        return redirect(action('Admin\SliderController@index'))->with('success', 'Slide Added Successfully..');
     }
     public function update(SliderRequest $request,$id)
     {

@@ -8,28 +8,7 @@
 @endsection
 
 @section('style')
-    <style>
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px; /* The height is 400 pixels */
-            width: 100%; /* The width is the width of the web page */
-        }
 
-        #pac-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 12px;
-            padding: 0 11px 0 13px;
-            text-overflow: ellipsis;
-            width: 400px;
-        }
-
-        #pac-input:focus {
-            border-color: #4d90fe;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -121,7 +100,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group {{ $errors->has('logo') ? 'has-danger' : '' }}">
-                                                <label class="control-label">Site Icon</label>
+                                                <label class="control-label">Logo Icon</label>
                                                 <input type="file" name="logo" class="form-control">
 
                                                 @if ($errors->has('logo'))
@@ -373,12 +352,12 @@
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
 
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
 @endsection
 

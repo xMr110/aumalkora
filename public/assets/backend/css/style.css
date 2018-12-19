@@ -1544,6 +1544,7 @@ ul#themecolors {
 *******************/
 .footer {
   margin-bottom: 0;
+  bottom: 0;
   color: #67757c;
   left: 0px;
   padding: 17px 15px;

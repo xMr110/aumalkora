@@ -24,9 +24,6 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_en'=>'required',
-            'description_en'=>'required',
-            'active'=>'required',
         ];
     }
 }

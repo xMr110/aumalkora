@@ -1,0 +1,52 @@
+@import "style.scss";
+.agents {
+	form {
+		input[type="submit"] {
+			background: $mainColor;
+			color: $whiteColor;
+			&:hover {
+				background: $mainColor;
+				color: $whiteColor;
+			}	
+		}
+	}
+	.agent {
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		border-radius: 5px;
+		padding: 20px;
+		margin: 10px;
+		border-top: 5px solid $mainColor;
+		border-bottom: 5px solid $mainColor;
+		span {
+			font-weight: bold;
+		}
+
+	}
+}
+.become_an_agent {
+	a {
+		background: $mainColor;
+		i {
+			color: $whiteColor;
+		}
+		&:hover, &:active {
+			background: $grayColour;
+			i {
+				color: #000;
+			}
+		}
+	}
+}
+#agent.modal {
+	input[type="submit"] {
+		background: $mainColor;
+		color: $whiteColor;
+		border-radius: 20px;
+	}
+	input {
+		&:focus {
+			border-bottom-color: $mainColor;
+			box-shadow: 0 1px 0 0 $mainColor;
+		}
+	}
+}

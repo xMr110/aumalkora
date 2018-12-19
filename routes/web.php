@@ -10,11 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+Route::get('/', 'SiteController@index');
+Route::get('product/{product}', 'SiteController@product');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

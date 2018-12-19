@@ -1,0 +1,67 @@
+@import "style.scss";
+.cart_page {
+	table {
+		.product_name {
+			color: $mainColor;
+			font-weight: bold;
+		}
+		.product_price {
+			color: green;
+			font-weight: bold;
+		}
+		.quantity {
+			width: 150px;
+		}
+		.drop_product {
+			color: red;
+		}
+	}
+	.total_price {
+		text-align: center;
+		background-color: $mainColor;
+		padding: 10px;
+		p {
+			padding: 10px;
+			color: $whiteColor;
+			margin: 10px auto;
+			background-color: $whiteColor;
+			color: $mainColor;
+			width: 30%;
+			span {
+				color: green;
+			}
+		}
+	}
+	.buy {
+		.check_out {
+				width: 100%;
+				margin: 10px auto;
+				background-color: $buyButtonColor;
+				color: $whiteColor;
+				font-family: roboto;
+				padding: 5px;
+    			height: 50px;
+			}
+	}
+	.update_cart {
+		margin: 10px auto;
+		a {
+			width: 100%;
+			background-color: $mainColor;
+			color: $whiteColor;
+			padding: 5px;
+    		height: 50px;
+		}
+	}
+	.clear_cart {
+		margin: 10px auto;
+		a {
+			width: 100%;
+			background-color: $grayColour;
+			color: #000;
+			padding: 5px;
+    		height: 50px;
+		}
+	}
+
+}

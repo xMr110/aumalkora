@@ -22,9 +22,10 @@ class CreateSlidersTable extends Migration
         Schema::create('slider_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('slider_id')->unsigned();
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
             $table->string('locale')->index();
+
             $table->unique(['slider_id', 'locale']);
             $table->foreign('slider_id')->references('id')->on('sliders')->onDelete('cascade');
         });

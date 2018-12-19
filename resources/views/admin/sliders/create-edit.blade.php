@@ -37,9 +37,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="title_{{$key}}">
-
                                             Slide Title ({{$locale->native()}})
-
                                         </label>
 
                                         <textarea

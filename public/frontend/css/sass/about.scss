@@ -1,0 +1,116 @@
+@import "style.scss";
+section {
+	margin: 0;
+}
+header {
+	margin-top: 0px;
+	background: url("../imgs/about_bg.svg") center no-repeat fixed;
+	background-size: cover;
+	height: 600px;
+	h1 {
+		margin:0px;
+		padding-top: 100px;
+		color: $whiteColor;
+	}
+}
+.vision_pa {
+	background-color: #eaeaea;
+	padding: 40px;
+	.about_title {
+		text-align: center;
+		margin-top: 20px;
+		h4{
+			margin:0px;
+		}
+	}
+	// .vision {
+	// 	position: relative;
+	// 	&:before {
+	// 		content: " ";
+	// 	    width: 110%;
+	// 	    height: 550px;
+	// 	    position: absolute;
+	// 	    background: #eaeaea;
+	// 	    /* opacity: 0.4; */
+	// 	    transform: rotate(-4deg);
+	// 	    z-index: -1;
+	// 	    top: -280px;
+	// 	    left: -30px;
+	// 	    @media only screen and (max-width: 480px){
+	// 	    	width: 0%;
+	// 	    }
+	// 	}
+	// 	p {
+	// 		margin-top: 0px;
+	// 		padding: 40px;	
+	// 	}
+	// }
+}
+.goals_pa {
+	padding: 40px;
+	background-color: $mainColor;
+	.about_title {
+		text-align: center;
+		margin-top: 20px;
+		h4 {
+			margin:0px;
+			color: $whiteColor;
+		}
+	}
+		.goals {
+			p{
+				color: $whiteColor;
+			}
+		}
+	// .goals {
+	// 	position: relative;
+	// 	&:before {
+	// 		content: " ";
+	// 	    width: 120%;
+	// 	    height: 445px;
+	// 	    position: absolute;
+	// 	    background: $mainColor;
+	// 	    /* opacity: 0.4; */
+	// 	    transform: rotate(-4deg);
+	// 	    z-index: -1;
+	// 	    top: -190px;
+	// 	    left: -30px;
+	// 	    @media only screen and (max-width: 480px){
+	// 	    	width: 0%;
+	// 	    }
+	// 	    @media only screen and (min-width: 481px) and (max-width: 766px){
+	// 	    	top: -243px;
+	// 	    	height: 550px;
+	// 	    }
+	// 	}
+	// 	p {
+	// 		margin-top: 0px;
+	// 		padding: 40px;
+	// 		color: $whiteColor;	
+	// 	}
+		
+	// }
+	// @media only screen and (max-width: 480px){
+	// 	   background: $mainColor;
+	// 	   padding: 5px 20px;
+	// }
+}
+.mission_pa {
+	padding: 40px;
+	// @media only screen and (max-width: 480px){
+	// 	margin-top: 100px;
+	// }
+	.about_title {
+		text-align: center;
+		margin-top: 20px;
+		h4{
+			margin:0px;
+			
+		}
+	}
+	.mission {
+		p {
+			margin-top: 0px;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+@import "style.scss";
+.photo-gallery {
+  .gallery {
+    border-top: 5px solid $mainColor;
+    padding: 10px;
+    margin: 10px auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: .5s all;
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    .album_img {
+        height: 240px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      a {
+        text-align: center;
+        margin: 10px auto;
+      }
+    }
+    .desc {
+      text-align: center;
+      font-size: 1rem;
+      color: #1a1a1a;
+      font-weight: bold;
+      font-family: Comfortaa;
+    }
+  }
+}
