@@ -29,7 +29,7 @@ class Setting extends Model
             'phone2' => '',
             'telephone' => '',
             'email' => '',
-            'fax' => '',
+            'address' => '',
             'slider' => '',
             'ceo_image' => '',
             'Ceo_Name_ar' => '',

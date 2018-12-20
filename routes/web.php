@@ -12,7 +12,15 @@
 */
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Route::get('/', 'SiteController@index');
-Route::get('product/{product}', 'SiteController@product');
+Route::get('category/{category}', 'SiteController@category');
+Route::get('/categories', 'SiteController@all');
+Route::get('/product/{product}','SiteController@show');
+
+
+Route::get('/about','SiteController@about');
+Route::get('/speech','SiteController@speech');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

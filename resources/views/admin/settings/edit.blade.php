@@ -196,12 +196,12 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="form-group {{ $errors->has('fax') ? 'has-danger' : '' }}">
-                                                <label class="control-label">Fax Number</label>
-                                                <input type="text" name="fax" class="form-control"
-                                                       value="{{ $settings->fax ?? '' }}">
-                                                @if ($errors->has('fax'))
-                                                    <small class="form-control-feedback">{{ $errors->first('fax') }}</small>
+                                            <div class="form-group {{ $errors->has('address') ? 'has-danger' : '' }}">
+                                                <label class="control-label">Address</label>
+                                                <input type="text" name="address" class="form-control"
+                                                       value="{{ $settings->address ?? '' }}">
+                                                @if ($errors->has('address'))
+                                                    <small class="form-control-feedback">{{ $errors->first('address') }}</small>
                                                 @endif
                                             </div>
                                         </div>

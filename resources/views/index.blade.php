@@ -87,18 +87,51 @@
         <div class="container">
             <h1 class="center-align">Products</h1>
             <div class="row">
-                @if(count($products))
-                    @foreach($products as $product)
+                @if(count($categories))
+                    @foreach($categories as $category)
                 <div class="col l3 m6 s12">
-                    <a href="{{action('SiteController@product',$product)}}">
-                        <img src="{{url('/storage/'.$product->image_path)}}" class="responsive-img" alt="new">
-                        <h5 class="center-align">{{$product->title}}</h5>
+                    <a href="{{action('SiteController@category',$category)}}">
+                        <img src="{{url('/storage/'.$category->image_path)}}" class="responsive-img" alt="new">
+                        <h5 class="center-align">{{$category->title}}</h5>
                     </a>
                 </div>
                     @endforeach
                     @endif
 
         </div>
+        </div>
+    </section>
+
+    <section class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col l4 m6 s12">
+                    <div class="contact" id="contact">
+                        <div class="logo">
+
+                            @if(isset($settings->logo)&& $settings->logo != "")
+                                <img class="responsive-img" src="{{ url('/storage/'. $settings->logo) }}" width="150">
+                            @endif
+                        </div>
+                        <div class="location">
+                            <i class="material-icons">location_on</i>
+                            <p>{{isset($settings->address) ? $settings->address : ''}}</p>
+                        </div>
+                        <div class="phone">
+                            <i class="material-icons">phone</i>
+                            <p>{{isset($settings->phone) ? $settings->phone : ''}}</p>
+                        </div>
+                        <div class="email">
+                            <i class="material-icons">email</i>
+                            <p>{{isset($settings->email) ? $settings->email : ''}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l8 m12 s12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1643777.1890646918!2d42.04041955674209!3d36.421234559044464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400976912dee2dfb%3A0x1735b67e4a2454b0!2z2YXYrdin2YHYuNipINin2YTYrdiz2YPYqdiMINiz2YjYsdmK2Kc!5e0!3m2!1sar!2s!4v1521869294564" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
     </section>
 

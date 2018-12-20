@@ -58,10 +58,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="description_{{$key}}">{{$locale->native()}}</label>
-                                        <input type="text" class="form-control form-control-line"
-                                               name="description_{{$key}}"
-                                               placeholder="Title for {{$locale->native()}}.. "
-                                               value="{{ isset($product) ? isset($product->translate($key)->description) ? $product->translate($key)->description : old("description_". $key) ?? '' : old("description_". $key) ?? '' }} "/>
+                                        <textarea name="description_{{$key}}" id="description_{{$key}}" cols="30"
+                                                  rows="10"
+                                                  class="mymce form-control">{{ isset($product) ? isset($product->translate($key)->description) ? $product->translate($key)->description : old("description_". $key) ?? '' : old("description_". $key) ?? '' }} </textarea>
+
                                     </div>
                                 </div>
                             @endforeach

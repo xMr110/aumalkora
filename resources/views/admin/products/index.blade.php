@@ -37,7 +37,7 @@
                                    @foreach($products as $product)
                                            <tr>
                                                <td>{{$product->title}}</td>
-                                               <td>{{str_limit($product->description,15)}}</td>
+                                               <td>{{strip_tags(str_limit($product->description,15))}}</td>
                                                <td>{{$product->price}}</td>
                                                <td>{{$product->quantity}}</td>
                                                <td><img src="{{'/storage/'.$product->image_path}}" width="40px" alt=""></td>
