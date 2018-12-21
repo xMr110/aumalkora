@@ -16,7 +16,7 @@
 <p
     </header>
 
-    <section class="about">
+    <section class="about"  dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}">
         <div class="container-no">
             <div class="row">
                 <div class="goals_pa">

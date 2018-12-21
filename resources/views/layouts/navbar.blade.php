@@ -9,7 +9,7 @@
             <li><a href="/about">About Us</a></li>
             <li><a href="/speech">CEO's speech</a></li>
             <li><a href="/categories">Products</a></li>
-            <li><a href="gallery">Gallery</a></li>
+            <li><a href="/gallery">Gallery</a></li>
             <li><a href="/#contact">contact us</a></li>
             {{--<li><a class="modal-trigger" href='#cart_modal'><i class="material-icons" >shopping_cart</i></a></li>--}}
             <li><a href="/lang/ar"><img src="{{asset('frontend/imgs/syria.svg')}}" class="img-responsive" width="35" style="padding-top: 10px;"></a></li>

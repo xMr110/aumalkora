@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <section class="speech">
+    <section   dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}" class="speech">
         <div class="container">
             <h1 class="center-align section-title">
                 @if(config('app.locale')=='en'){{$settings->Ceo_Name_en}}@elseif(config('app.locale')=='ar'){{$settings->Ceo_Name_ar}}@else{{$settings->Ceo_Name_tr}}@endif</h1>

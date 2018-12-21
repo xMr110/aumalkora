@@ -44,8 +44,6 @@ class SiteController extends Controller
     }
     public function show($product)
     {
-
-
         $product = Product::findOrFail($product);
         return view('single',compact('product'));
     }

@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <section class="products-page">
+    <section  dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}" class="products-page">
         <div class="container">
             <div class="row">
                 <div class="col l12 m12 s12 center-align">

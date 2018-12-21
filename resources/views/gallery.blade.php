@@ -35,7 +35,7 @@
 
                             @foreach($album->images as $image)
                             <div class="col l3 m6 s12">
-                                <img src="#" class="responsive-img materialboxed" width="300" height="200">
+                                <img src="{{url('/storage/'.$image->image_path)}}" class="responsive-img materialboxed" width="300" height="200">
                             </div>
                                 @endforeach
 
