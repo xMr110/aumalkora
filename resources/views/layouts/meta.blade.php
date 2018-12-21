@@ -2,7 +2,7 @@
 
 <title>AumAlkura - @yield('title')</title>
 @if(isset($settings->logo)&& $settings->logo != "")
-<link rel="shortcut icon" href="{{ '/storage/'. $settings->logo }}" type="image/x-icon"/>
+<link dir="ltr" rel="shortcut icon" href="{{ '/storage/'. $settings->logo }}" type="image/x-icon"/>
 @endif
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -13,7 +13,8 @@
 
     <section class="speech">
         <div class="container">
-            <h1 class="center-align section-title">{{isset($settings->Ceo_Name_en)?$settings->Ceo_Name_en:''}}</h1>
+            <h1 class="center-align section-title">
+                @if(config('app.locale')=='en'){{$settings->Ceo_Name_en}}@elseif(config('app.locale')=='ar'){{$settings->Ceo_Name_ar}}@else{{$settings->Ceo_Name_tr}}@endif</h1>
             <div class="row">
                 <div class="col l12 m6 s12">
                     <div class="speech_image center-align">
@@ -23,7 +24,7 @@
                     </div>
                     <div class="speech_text">
                         <p>
-                            {!! isset($settings->ceo_description_en)?$settings->ceo_description_en:'' !!}
+                            @if( config('app.locale') == "en"){!! $settings->ceo_description_en!!}@elseif(config('app.locale')=='ar'){!! $settings->ceo_description_ar !!}@else{!! $settings->ceo_description_tr !!}@endif
                         </p>
                     </div>
                 </div>

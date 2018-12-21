@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
@@ -15,6 +16,11 @@ class SiteController extends Controller
         $categories=Category::all();
 
         return view('index',compact(['slides','categories']));
+    }
+    public function gallery()
+    {
+        $albums = Album::all();
+        return view('gallery',compact('albums'));
     }
     public function category($category)
     {

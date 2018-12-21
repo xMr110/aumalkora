@@ -8,7 +8,7 @@
 
 @section('content')
     @if(count($slides))
-    <div class="slider">
+    <div  class="slider">
         <div class="arrows">
             <div class="right right-arrow">
                 <a href="javascript:void(0)">
@@ -21,11 +21,11 @@
                 </a>
             </div>
         </div>
-        <ul class="slides">
+        <ul class="slides" >
             @foreach($slides as $slide)
-            <li>
+            <li  dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}">
                 <img src="{{url('/storage/'.$slide->image_path)}}"> <!-- random image -->
-                <div class="caption left-align">
+                <div class="caption  @if(config('app.locale') != "ar")  left-align @elseif(config('app.locale') == "ar") right-align @endif">
                     <h3>{{$slide->title}}</h3>
                     <h5 class="light grey-text text-lighten-3">{{$slide->description}}</h5>
                 </div>
@@ -36,7 +36,7 @@
     </div>
 @endif
 
-    <section class="about-products">
+    <section  dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}" class="about-products">
         <div class="container">
             <h2 class="center-align">About Our Products</h2>
             <div class="row">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col l6">
                     <p>
-                        {!! config('app.locale') == 'en'? $settings->ourproduct_description_en :  config('app.locale') == 'ar' ? $settings->ourproduct_description_ar : $settings->ourproduct_description_tr!!}
+                        @if(config('app.locale')=='en'){!! $settings->ourproduct_description_en!!}@elseif(config('app.locale')=='ar'){!! $settings->ourproduct_description_ar !!}@else{!! $settings->ourproduct_description_tr !!}@endif
                     </p>
                 </div>
             </div>
@@ -53,29 +53,30 @@
         </div>
     </section>
 
-    <section class="alkura-panel">
+    <section class="alkura-panel"   dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}">
         <div class="container">
             <div class="row">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header active">
-                            {!! config('app.locale') == 'en'? $settings->index_title_en : ''!!}
+                            @if(config('app.locale')=='en'){{$settings->index_title_en}}@elseif(config('app.locale')=='ar'){{$settings->index_title_ar}}@else{{$settings->index_title_tr}}@endif
+                            {{--{!! config('app.locale') == 'en'? $settings->index_title_en : ''!!}--}}
                         </div>
-                        <div class="collapsible-body"><span><p> {!! config('app.locale') == 'en'? $settings->panel_description_en :''!!}</p></span></div>
+                        <div class="collapsible-body"><span><p> @if(config('app.locale')=='en'){!! $settings->panel_description_en!!}@elseif(config('app.locale')=='ar'){!! $settings->panel_description_ar !!}@else{!! $settings->panel_description_tr !!}@endif</p></span></div>
                     </li>
                     <li>
                         <div class="collapsible-header">
                             {{--{!! config('app.locale') == 'en'? $settings->index_title_en2 :  config('app.locale') == 'ar' ? $settings->index_title_ar2 : $settings->index_title_tr2!!}--}}
-
-                            {!! config('app.locale') == 'en'? $settings->index_title_en2 : ''!!}
+                            @if(config('app.locale')=='en'){{$settings->index_title_en2}}@elseif(config('app.locale')=='ar'){{$settings->index_title_ar2}}@else{{$settings->index_title_tr2}}@endif
                         </div>
                         {{--<div class="collapsible-body"><span><p>{!! config('app.locale') == 'en'? $settings->panel_description_en2 :  config('app.locale') == 'ar' ? $settings->panel_description_ar2 : $settings->panel_description_tr2!!}</p></span></div>--}}
-
-                        <div class="collapsible-body"><span><p>{!! config('app.locale') == 'en'? $settings->panel_description_en2 : ''!!}</p></span></div>
+                        <div class="collapsible-body"><span><p> @if(config('app.locale')=='en'){!! $settings->panel_description_en2!!}@elseif(config('app.locale')=='ar'){!! $settings->panel_description_ar2 !!}@else{!! $settings->panel_description_tr2 !!}@endif</p></span></div>
                     </li>
                     <li>
-                        <div class="collapsible-header"> {!! config('app.locale') == 'en'? $settings->index_title_en3 : ''!!}</div>
-                        <div class="collapsible-body"><span><p>{!! config('app.locale') == 'en'? $settings->panel_description_en3 :  ''!!}</p></span></div>
+                        <div class="collapsible-header">
+                            @if(config('app.locale')=='en'){{$settings->index_title_en3}}@elseif(config('app.locale')=='ar'){{$settings->index_title_ar3}}@else{{$settings->index_title_tr3}}@endif
+                        </div>
+                        <div class="collapsible-body"><span><p> @if(config('app.locale')=='en'){!! $settings->panel_description_en3!!}@elseif(config('app.locale')=='ar'){!! $settings->panel_description_ar3 !!}@else{!! $settings->panel_description_tr3 !!}@endif</p></span></div>
                     </li>
                 </ul>
             </div>
@@ -83,13 +84,13 @@
         </div>
     </section>
 
-    <section class="type_of_products">
+    <section class="type_of_products"   dir="{{ config('app.locale') == 'ar' ? 'rtl' : '' }}" lang="{{ config('app.locale') == 'ar' ? 'ar' : '' }}">
         <div class="container">
             <h1 class="center-align">Products</h1>
             <div class="row">
                 @if(count($categories))
                     @foreach($categories as $category)
-                <div class="col l3 m6 s12">
+                <div  @if( config('app.locale') == 'ar') style="float: right!important;" @endif class="col l3 m6 s12">
                     <a href="{{action('SiteController@category',$category)}}">
                         <img src="{{url('/storage/'.$category->image_path)}}" class="responsive-img" alt="new">
                         <h5 class="center-align">{{$category->title}}</h5>
@@ -102,7 +103,7 @@
         </div>
     </section>
 
-    <section class="contact-us">
+    <section class="contact-us" >
         <div class="container">
             <div class="row">
                 <div class="col l4 m6 s12">
