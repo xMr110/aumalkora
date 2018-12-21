@@ -42,6 +42,21 @@ class SiteController extends Controller
     {
         return view('speech');
     }
+
+    public function getAjax()
+    {
+        $id = $_GET['id'];
+        $album = Album::findOrFail($id);
+        $html = '';
+        foreach($album->images as $image)
+        {
+            $html = $html.'<div class="col l3 m6 s12"><img src="' . url('/storage/'.$image->image_path) . '" class="responsive-img materialboxed" width="400" height="200"></div>';
+
+        }
+        return $html;
+    }
+
+
     public function show($product)
     {
         $product = Product::findOrFail($product);

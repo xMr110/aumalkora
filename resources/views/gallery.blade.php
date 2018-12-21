@@ -31,14 +31,11 @@
                 <div id="MyModal" class="modal">
                     <div class="modal-content">
                         <h4 class="center-align" id="title"></h4>
-                        <div class="row">
+                        <div class="row" id="Images" >
 
-                            @foreach($album->images as $image)
-                            <div class="col l3 m6 s12">
-                                <img src="{{url('/storage/'.$image->image_path)}}" class="responsive-img materialboxed" width="300" height="200">
+                                {{--<img src="{{url('/storage/'.$image->image_path)}} " class="responsive-img materialboxed" width="600" height="400">--}}
+                                {{--<img src="' . url('/storage/'.$image->image_path) . '" class="responsive-img materialboxed" width="600" height="400">--}}
                             </div>
-                                @endforeach
-
 
                         </div>
                         <!--<div class="modal-footer">
@@ -56,6 +53,22 @@
 
 @section('script')
 
+
+    <script>
+        $(function(){
+            $('.Pass-Id').click(function() {
+                $.ajax({
+                    url: '/gallery/{id}',
+                    type: 'GET',
+                    data: $(this).data('id'),
+                    success: function(response)
+                    {
+                        $('#Images').html(response);
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         $('.Pass-Id').click(function () {

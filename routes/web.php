@@ -14,8 +14,15 @@ Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@swit
 Route::get('/', 'SiteController@index');
 Route::get('category/{category}', 'SiteController@category');
 Route::get('/categories', 'SiteController@all');
+
+
 Route::get('/gallery','SiteController@gallery');
+Route::get('/gallery/{id}', 'SiteController@getAjax');
+
 Route::get('/product/{product}','SiteController@show');
+
+
+
 
 Route::get('/about','SiteController@about');
 Route::get('/speech','SiteController@speech');
