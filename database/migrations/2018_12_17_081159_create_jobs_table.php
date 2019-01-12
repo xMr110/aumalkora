@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->integer('job_id')->unsigned();
             $table->string('title')->nullable();
             $table->string('name')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('locale')->index();
 
             $table->unique(['job_id', 'locale']);

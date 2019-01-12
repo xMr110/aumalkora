@@ -50,7 +50,9 @@ class SiteController extends Controller
         $html = '';
         foreach($album->images as $image)
         {
-            $html = $html.'<div class="col l3 m6 s12"><img src="' . url('/storage/'.$image->image_path) . '" class="responsive-img materialboxed" width="400" height="200"></div>';
+            $html = $html.'<div class="col l3 m6 s12">
+            <a target="_blank" href="'.url('/storage/'.$image->image_path).'">
+            <img  src="' . url('/storage/'.$image->image_path) . '" class="responsive-img materialboxed" width="400" height="200"></a></div>';
 
         }
         return $html;

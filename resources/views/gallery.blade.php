@@ -5,15 +5,30 @@
 
 @section('style')
     <link type="text/css" rel="stylesheet" href="{{ asset('frontend/css/gallery.css') }}"  media="screen,projection"/>
+
+    <style>
+        #ninja-slider .caption {
+            position:absolute;
+            top:100%;
+        }
+        #ninja-slider .slider-inner {padding-bottom: 100px!important;}
+        #ninja-slider li {margin-bottom: 100px!important;}
+        #ninja-slider ul {overflow:visible!important;}
+        #ninja-slider li {/*overflow:hidden;*/}
+    </style>
 @endsection
 @section('content')
     <section class="photo-gallery">
+
         <div class="section-title center-align">
             <h1>Photos Gallery</h1>
         </div>
         <div class="container-fluid">
-            <div class="row">
 
+            <div class="row">
+                <div style="display:none;">
+                    <div id="ninja-slider">...(omitted for brevity)...</div>
+                </div>
 
                 @foreach($albums as $album)
                 <div class="col l3 m6 s12">
@@ -45,15 +60,35 @@
                 </div>
             </div>
 
-
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" id="imagepreview" style="width: 400px; height: 264px;" >
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     @endsection
 
+
 @section('script')
 
-
+    <script>
+        $("#pop").on("click", function() {
+            $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
+            $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+        });
+    </script>
     <script>
         $(function(){
             $('.Pass-Id').click(function() {
